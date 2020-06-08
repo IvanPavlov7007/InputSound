@@ -27,8 +27,11 @@ public class SongSelectionManager : MonoBehaviour
         fileManager = SongsFilesManager.instance;
         string lastPath = Environment.GetEnvironmentVariable(saveEnvironmentVariableName);
         inputField.text = lastPath;
-        FolderPathChanged(lastPath);
-        RefreshButtons();
+        if (lastPath != null)
+        {
+            FolderPathChanged(lastPath);
+            RefreshButtons();
+        }
     }
 
     private void Start()
